@@ -32,7 +32,7 @@ func before(value string, a string) string {
 }
 
 func after(value string, a string) string {
-	pos := strings.Index(value, a)
+	pos := strings.LastIndex(value, a)
 	adjPos := pos + len(a)
 
 	if pos == -1 {
@@ -45,9 +45,9 @@ func after(value string, a string) string {
 }
 
 func main() {
-	test := "Consider the main func. We declare a string literal that looks like some sort of data format."
+	test := "" //insert smth here
 
-	fmt.Println(between(test, "consider", "format"))
-	fmt.Println(before(test, "."))
-	fmt.Println(after(test, "of"))
+	fmt.Println(between(test, "", "")) //word
+	fmt.Println(before(test, ""))      //word
+	fmt.Println(after(test, ""))       //word
 }
