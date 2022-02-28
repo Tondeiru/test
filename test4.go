@@ -127,7 +127,7 @@ func main() {
 	//selection_sort(tmp)
 	//fmt.Println(tmp)
 
-	bubble_sort(tmp)
+	//bubble_sort(tmp)
 	//fmt.Println(tmp)
 
 	//merge_sort(tmp)
