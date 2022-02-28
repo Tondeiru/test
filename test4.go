@@ -7,6 +7,7 @@ import (
 )
 
 func generateRandomSlice(size int) []int {
+	// generating slice with random ints
 	slice := make([]int, size, size)
 	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < size; i++ {
@@ -22,7 +23,7 @@ func selection_sort(arr []int) {
 	}
 
 	for i := 0; i < len(arr)-1; i++ {
-		// Find the minimum element in unsorted array
+		// find the minimum element in unsorted array
 		min_idx := i
 		for j := i + 1; j < len(arr); j++ {
 			if arr[j] < arr[min_idx] {
@@ -30,7 +31,7 @@ func selection_sort(arr []int) {
 			}
 		}
 
-		// Swap the found minimum element with the first element
+		// swap the found minimum element with the first element
 		tmp := arr[i]
 		arr[i] = arr[min_idx]
 		arr[min_idx] = tmp
@@ -41,8 +42,9 @@ func bubble_sort(arr []int) {
 	if len(arr) < 2 {
 		return
 	}
-
+	// start loop in reverse order
 	for i := len(arr); i > 0; i-- {
+		// inner loop iterates through the full length
 		for j := 1; j < i; j++ {
 
 			if arr[j-1] > arr[j] {
@@ -60,6 +62,7 @@ func merge_sort(arr []int) []int {
 		return arr
 	}
 
+	// split the array on two halves
 	first := merge_sort(arr[:len(arr)/2])
 	second := merge_sort(arr[len(arr)/2:])
 	return merge(first, second)
@@ -69,9 +72,9 @@ func merge_sort(arr []int) []int {
 func merge(a []int, b []int) []int {
 
 	final := []int{}
-	j := 0
-	i := 0
+	j, i := 0, 0
 
+	// compare left and right
 	for i < len(a) && j < len(b) {
 		if a[i] < b[j] {
 			final = append(final, a[i])
@@ -97,13 +100,13 @@ func quick_sort(arr []int) {
 
 	left, right := 0, len(arr)-1
 
-	//random pivot
+	// random pivot
 	pivot := rand.Int() % len(arr)
 
-	//pivot to the right
+	// pivot to the right
 	arr[pivot], arr[right] = arr[right], arr[pivot]
 
-	//elements smaller than pivot to the left
+	// elements smaller than pivot to the left
 	for i := range arr {
 		if arr[i] < arr[right] {
 			arr[i], arr[left] = arr[left], arr[i]
@@ -111,7 +114,7 @@ func quick_sort(arr []int) {
 		}
 	}
 
-	//pivot after the last smaller element
+	// pivot after the last smaller element
 	arr[left], arr[right] = arr[right], arr[left]
 
 	quick_sort(arr[:left])
