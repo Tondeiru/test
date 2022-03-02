@@ -2,30 +2,26 @@ package main
 
 import (
 	"fmt"
+	//"math"
 )
 
-func printFibonacci(n int) int {
-
-	a := 0
-	b := 1
-	for i := 0; i < n; i++ {
-		a, b = b, b+a
+func fibr(n int) int {
+	if n < 2 {
+		return 1
 	}
-
-	return a
-
+	return fibr(n-2) + fibr(n-1)
 }
 
 func main() {
 
 	var n = 3
+	//fmt.Scan(&n)
 
-	for i := 0; true; i++ {
-		if n == printFibonacci(i) {
-			fmt.Print(i)
+	for i := 0; i < n; i++ {
+		if n == fibr(i) {
+			fmt.Println(i)
 			return
 		}
-
 	}
-	fmt.Print(-1)
+	fmt.Println(-1)
 }
