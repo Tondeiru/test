@@ -40,6 +40,7 @@ func spiralka(n int) []int {
 		}
 		left++
 	}
+	//centr
 
 	return s
 }
